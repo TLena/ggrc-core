@@ -392,4 +392,19 @@ describe('can.Model.AssessmentTemplate', function () {
       }
     );
   });
+
+  describe('form_preload() method', () => {
+    it('should create new audit model ' +
+      'when it is called for audit editing', () => {
+        const pageInstance = {type: 'Audit'};
+
+        instance.audit = null;
+        spyOn(GGRC, 'page_instance').and.returnValue(pageInstance);
+
+        instance.form_preload();
+
+        expect(instance.audit instanceof CMS.Models.Audit).toBeTruthy();
+      }
+    );
+  });
 });

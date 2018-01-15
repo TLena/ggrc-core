@@ -301,13 +301,7 @@ import Permission from '../permission';
       this._updateDropdownEnabled('verifiers');
 
       if (pageInstance && pageInstance.type === 'Audit' && !this.audit) {
-        this.audit = {
-          id: pageInstance.id,
-          title: pageInstance.title,
-          type: pageInstance.type,
-          context: pageInstance.context,
-          issue_tracker: pageInstance.issue_tracker,
-        };
+        this.audit = new CMS.Models.Audit(pageInstance);
       }
 
       this.initCanUseIssueTracker(this.audit.issue_tracker);
